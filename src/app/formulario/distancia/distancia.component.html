@@ -1,0 +1,21 @@
+<p>distancia works!</p>
+
+<div>
+  <h1>Multiplica dos numeros</h1>
+  <form [formGroup]="formulario">
+    <div>
+    <label for="">Primero Numero</label>
+    <input formControlName="numero1" type="number">
+    </div>
+  </form>
+  <br>
+  <div>
+    <label for="">Segundo Numero</label>
+    <input formControlName="numero2" type="number">
+  </div>
+  <br>
+  <button (click)="multNumeros()" type="button">Multiplicar</button>
+  <h1>Resultado: {{resultado}}</h1>
+</div>
+
+

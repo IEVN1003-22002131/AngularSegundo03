@@ -1,0 +1,78 @@
+.contenedor-principal {
+    display: flex;
+    max-width: 900px;
+    margin: 50px auto;
+    border: 1px solid #ccc; 
+}
+.columna {
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 500px; 
+}
+.formulario {
+    border-right: 1px solid #ccc;
+}
+.formulario h3 {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.campo-grupo input{
+    margin-bottom: 15px;
+    margin-left: 15px;
+    padding: 5px;
+}
+.fecha-nacimiento {
+    display: flex;
+    gap: 10px; 
+}
+.fecha-parte input{
+    width: 90%;
+    padding: 5px;
+    text-align: center;
+}
+.radio-label {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 14px;
+}
+.btn-imprimir {
+    margin-top: 25px;
+    padding: 8px 20px;
+    background-color: #3b8eed;
+    font-size: 16px;
+}
+.resultados {
+    flex: 1;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.resultados h1 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.resultados p {
+    font-size: 20px;
+    margin: 5px 0;
+}
+.signo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.signo-texto {
+    font-weight: bold;
+    margin-right: 15px;
+}
+.imagen-signo {
+    width: 100px; 
+    height: 100px;
+    margin-left: 20px;
+    border-radius: 50%; 
+    object-fit: cover;
+}
