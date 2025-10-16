@@ -1,17 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DistanciaComponent } from './distancia.component';
 
-describe('DistanciaComponent', () => {
-  let component: DistanciaComponent;
-  let fixture: ComponentFixture<DistanciaComponent>;
+import { EditarComponent } from './editar.component';
+
+describe('EditarComponent', () => {
+  let component: EditarComponent;
+  let fixture: ComponentFixture<EditarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DistanciaComponent]
+      imports: [EditarComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DistanciaComponent);
+    fixture = TestBed.createComponent(EditarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

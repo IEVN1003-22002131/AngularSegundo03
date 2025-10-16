@@ -1,61 +1,52 @@
-<div class="contenedor-principal">
-    <div class="columna formulario">
-        <h3>Datos Personales</h3>
-        <form [formGroup]="formulario" (ngSubmit)="imprimirInformacion()">
-            <div class="campo-grupo">
-                <label for="nombre">Nombre:</label>
-                <input id="nombre" type="text" formControlName="nombre" placeholder="text field Nombre">
-            </div>
-            <div class="campo-grupo">
-                <label for="apaterno">Apellido Paterno:</label>
-                <input id="apaterno" type="text" formControlName="apaterno" placeholder="text field Apaterno">
-            </div>
-            <div class="campo-grupo">
-                <label for="amaterno">Apellido Materno:</label>
-                <input id="amaterno" type="text" formControlName="amaterno" placeholder="text field Amaterno">
-            </div>
+<div class="contenedor">
+  <div class="formulario">
+    <form [formGroup]="zodiacoForm">
+      <div class="campo">
+        <label>Nombre</label>
+        <input type="text" formControlName="Nombre" placeholder="Nombre" />
+      </div>
 
-            <h3>Fecha de Nacimiento</h3>
-            <div class="fecha-nacimiento">
-                <div class="fecha-parte">
-                    <label for="dia">Día</label>
-                    <input id="dia" type="number" formControlName="dia" placeholder="text field Día">
-                </div>
-                <div class="fecha-parte">
-                    <label for="mes">Mes</label>
-                    <input id="mes" type="number" formControlName="mes" placeholder="text field Mes">
-                </div>
-                <div class="fecha-parte">
-                    <label for="anio">Año</label>
-                    <input id="anio" type="number" formControlName="anio" placeholder="text field Año">
-                </div>
-            </div>
+      <div class="campo">
+        <label>Apellido Paterno</label>
+        <input type="text" formControlName="Paterno" placeholder="Paterno" />
+      </div>
 
-            <h3>Sexo</h3>
-            <div class="sexo-grupo">
-                <label class="radio-label">
-                    <input type="radio" formControlName="sexo" value="Masculino"> Masculino
-                </label>
-                <label class="radio-label">
-                    <input type="radio" formControlName="sexo" value="Femenino"> Femenino
-                </label>
-            </div>
-            <button type="submit" class="btn-imprimir">Imprimir</button>
-        </form>
-    </div>
+      <div class="campo">
+        <label>Apellido Materno</label>
+        <input type="text" formControlName="Materno" placeholder="Materno" />
+      </div>
 
-    <div class="columna resultados">
-        <div *ngIf="mostrarResultado && resultado" class="contenido-resultado">
-            <h1>Hola {{ resultado.getNombreCompleto() }}</h1>
-            <p>Tienes {{ resultado.edad }} años.</p>
-            <p>Tu animal del Horoscopo Chino es:</p>
-            <div class="signo-container">
-                <p class="signo-texto">{{ resultado.signoChino }}</p>
-                <img [src]="resultado.imagenSigno" alt="Signo {{ resultado.signoChino }}" class="imagen-signo">
-            </div>
+      <div class="campo">
+        <label>Fecha de Nacimiento</label>
+        <div class="fecha-group">
+          <input type="number" formControlName="Dia" placeholder="Día" min="1" max="31" />
+          <input type="number" formControlName="Mes" placeholder="Mes" min="1" max="12" />
+          <input type="number" formControlName="Anio" placeholder="Año" min="1900" [max]="2025" />
         </div>
-        <div *ngIf="!mostrarResultado" class="contenido-resultado">
-            <h1>Hola [Nombre Apellido Paterno Apellido Materno]</h1>
-        </div>
+      </div>
+
+      <div class="campo radio-group">
+        <label>Sexo</label>
+        <label class="radio-option">
+          <input type="radio" formControlName="Sexo" value="Masculino" />
+          Masculino
+        </label>
+        <label class="radio-option">
+          <input type="radio" formControlName="Sexo" value="Femenino" />
+          Femenino
+        </label>
+      </div>
+      <button (click)="imprimirInformacion()" [disabled]="zodiacoForm.invalid" class="boton-imprimir">Imprimir</button>
+    </form>
+  </div>
+  
+  <div class="resultado" *ngIf="mostrarResultado">
+    <h1>Hola {{ procesoZodiaco.NombreCompleto }}</h1>
+    <p>Tienes {{ procesoZodiaco.Edad }} años</p>
+    <p>Tu signo zodiacal es:</p>
+    <div class="signo-chino">
+      <img [src]="procesoZodiaco.ImagenSigno" [alt]="'Imagen del signo ' + procesoZodiaco.SignoChino" class="imagen-signo">
+      <p>Es {{ procesoZodiaco.SignoChino | lowercase }}</p>
     </div>
+  </div>
 </div>

@@ -1,78 +1,65 @@
-.contenedor-principal {
-    display: flex;
-    max-width: 900px;
-    margin: 50px auto;
-    border: 1px solid #ccc; 
+.contenedor {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
 }
-.columna {
-    padding: 20px;
-    box-sizing: border-box;
-    min-height: 500px; 
+
+.formulario, .resultado {
+  width: 45%;
+  padding: 20px;
+  border: 1px solid #ccc;
 }
-.formulario {
-    border-right: 1px solid #ccc;
+
+.campo {
+  margin-bottom: 15px;
 }
-.formulario h3 {
-    margin-top: 20px;
-    margin-bottom: 5px;
-    font-weight: bold;
+
+.campo label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
-.campo-grupo input{
-    margin-bottom: 15px;
-    margin-left: 15px;
-    padding: 5px;
+
+input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
 }
-.fecha-nacimiento {
-    display: flex;
-    gap: 10px; 
+
+.fecha-group input {
+  width: 30%;
+  margin-right: 3%;
+  display: inline-block;
 }
-.fecha-parte input{
-    width: 90%;
-    padding: 5px;
-    text-align: center;
+
+.radio-group label {
+  font-weight: normal;
 }
-.radio-label {
-    display: inline-block;
-    margin-right: 20px;
-    font-size: 14px;
+
+.radio-option {
+  margin-right: 15px;
+  display: inline-block;
 }
-.btn-imprimir {
-    margin-top: 25px;
-    padding: 8px 20px;
-    background-color: #3b8eed;
-    font-size: 16px;
+
+.boton-imprimir {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  display: block;
+  width: 100%;
 }
-.resultados {
-    flex: 1;
-    display: flex; 
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+
+.resultado-container {
+  text-align: center;
 }
-.resultados h1 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-.resultados p {
-    font-size: 20px;
-    margin: 5px 0;
-}
-.signo-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-}
-.signo-texto {
-    font-weight: bold;
-    margin-right: 15px;
-}
+
 .imagen-signo {
-    width: 100px; 
-    height: 100px;
-    margin-left: 20px;
-    border-radius: 50%; 
-    object-fit: cover;
+  width: 100px;
+  height: auto;
+  margin: 10px 0;
 }

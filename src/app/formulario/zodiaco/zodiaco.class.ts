@@ -1,53 +1,68 @@
 export class Zodiaco {
-    nombre: string;
-    apaterno: string;
-    amaterno: string;
-    dia: number;
-    mes: number;
-    anio: number;
-    sexo: string;
+  Nombre: string = '';
+  Paterno: string = '';
+  Materno: string = '';
+  Dia: number = 0;
+  Mes: number = 0;
+  Anio: number = 0;
+  Sexo: string = '';
+  NombreCompleto: string = '';
+  Edad: number = 0;
+  SignoChino: string = '';
+  ImagenSigno: string = '';
+  fechaHoy: Date = new Date();
+  fechaNacimiento: Date = new Date(0);
+  diferenciaMeses: number = 0;
+  indiceZodiacal: number = 0;
+  
+  signos: string[] = ['Mono', 'Gallo', 'Perro', 'Cerdo', 'Rata', 'Buey', 'Tigre', 'Conejo', 'Dragón', 'Serpiente', 'Caballo', 'Cabra'];
+  
+  imagenSignoMap: { [key: string]: string } = { 
+        'Mono': '/mono.jpg',
+        'Gallo': '/gallo.jpg',
+        'Perro': '/perro.jpg',
+        'Cerdo': '/cerdo.jpg',
+        'Rata': '/rata.jpg',
+        'Buey': '/buey.jpg',
+        'Tigre': '/tigre.jpg',
+        'Conejo': '/conejo.jpg',
+        'Dragón': '/dragon.jpg',
+        'Serpiente': '/serpiente.jpg',
+        'Caballo': '/caballo.jpg',
+        'Cabra': '/cabra.jpg',
+    };
+  
+  procesar(datosFormulario: any): void {
+    this.Nombre = datosFormulario.Nombre;
+    this.Paterno = datosFormulario.Paterno;
+    this.Materno = datosFormulario.Materno;
+    this.Dia = datosFormulario.Dia;
+    this.Mes = datosFormulario.Mes;
+    this.Anio = datosFormulario.Anio;
+    this.Sexo = datosFormulario.Sexo;
+    this.calcularNombreCompleto();
+    this.calcularEdad();
+    this.calcularSignoChino();
+  }
+  calcularNombreCompleto(): void {
+    this.NombreCompleto = this.Nombre + ' ' + this.Paterno + ' ' + this.Materno;
+  }
 
-    edad: number | null= null;
-    signoChino: string= '';
-    imagenSigno: string= '';
-
-    private signos= [
-        'Mono', 'Gallo', 'Perro', 'Cerdo', 'Rata', 'Buey',
-        'Tigre', 'Conejo', 'Dragón', 'Serpiente', 'Caballo', 'Cabra'
-    ];
-
-    constructor(data: any) {
-        this.nombre= data.nombre;
-        this.apaterno= data.apaterno;
-        this.amaterno= data.amaterno;
-        this.dia= data.dia;
-        this.mes= data.mes;
-        this.anio= data.anio;
-        this.sexo= data.sexo;
+  calcularEdad(): void {
+    this.fechaHoy = new Date();
+    this.fechaNacimiento = new Date(this.Anio, this.Mes - 1, this.Dia);
+    this.Edad = this.fechaHoy.getFullYear() - this.fechaNacimiento.getFullYear();
+    this.diferenciaMeses = this.fechaHoy.getMonth() - this.fechaNacimiento.getMonth();
+    if (this.diferenciaMeses < 0 || (this.diferenciaMeses === 0 && this.fechaHoy.getDate() < this.fechaNacimiento.getDate())) {
+      this.Edad--;
     }
-    calcularEdad(): number {
-        const fechaActual= new Date();
-        const fechaNacimiento= new Date(this.anio, this.mes-1, this.dia);
-        let edadCalculada= fechaActual.getFullYear()-fechaNacimiento.getFullYear();
-        const cumpleaniosEsteAnio = new Date(fechaActual.getFullYear(), this.mes-1, this.dia);
-        if (fechaActual<cumpleaniosEsteAnio) {
-            edadCalculada--;
-        }
-        this.edad= edadCalculada;
-        return edadCalculada;
+  }
+  calcularSignoChino(): void {
+    this.indiceZodiacal = (this.Anio - 1992) % 12;
+    if (this.indiceZodiacal < 0) {
+      this.indiceZodiacal = this.indiceZodiacal + 12;
     }
-    determinarSignoChino(): string {
-        const anioBase= 1920;
-        const indice= (this.anio - anioBase)%12;
-        this.signoChino= this.signos[indice<0 ? indice+12 : indice];
-        this.imagenSigno= this.signoChino.toLowerCase();
-        return this.signoChino;
-    }
-    procesarDatos() {
-        this.calcularEdad();
-        this.determinarSignoChino();
-    }
-    getNombreCompleto(): string {
-        return `${this.nombre} ${this.apaterno} ${this.amaterno}`;
-    }
+    this.SignoChino = this.signos[this.indiceZodiacal];
+    this.ImagenSigno = this.imagenSignoMap[this.SignoChino] || '';
+}
 }

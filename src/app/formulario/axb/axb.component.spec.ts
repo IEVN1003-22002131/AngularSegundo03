@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DistanciaComponent } from './distancia.component';
+import { AxbComponent } from './axb.component';
 
-describe('DistanciaComponent', () => {
-  let component: DistanciaComponent;
-  let fixture: ComponentFixture<DistanciaComponent>;
+describe('AxbComponent', () => {
+  let component: AxbComponent;
+  let fixture: ComponentFixture<AxbComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DistanciaComponent]
+      imports: [AxbComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DistanciaComponent);
+    fixture = TestBed.createComponent(AxbComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

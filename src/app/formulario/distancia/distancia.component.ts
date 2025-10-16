@@ -1,28 +1,33 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } 
-from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { Distancia } from './distancias.class';
+import { ReactiveFormsModule, FormsModule, FormGroup, FormControl} from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-distancia',
-  imports: [FormsModule, ReactiveFormsModule],
+  standalone: true,
+  imports: [FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './distancia.component.html',
   styleUrl: './distancia.component.css'
 })
-export class DistanciaComponent {
-
-  formulario!:FormGroup;
-  resultado!:number;
-  constructor() { }
-  ngOnInit(): void{
+export class DistanciaComponent implements OnInit{
+  formulario!: FormGroup
+  objetodistancia = new Distancia()
+  resultado: number = 0
+  ngOnInit() {
     this.formulario = new FormGroup({
-      numero1: new FormControl(''),
-      numero2: new FormControl('')
-    });
+      x1: new FormControl(''),
+      y1: new FormControl(''),
+      x2: new FormControl(''),
+      y2: new FormControl('')
+    })
   }
-    multNumeros(): void{
-    const numero1=this.formulario.get('numero1')?.value;
-    const numero2=this.formulario.get('numero2')?.value;
-    this.resultado=numero1*numero2;
-
+  calcularDistancia() {
+    this.objetodistancia.x1 = Number(this.formulario.value.x1)
+    this.objetodistancia.y1 = Number(this.formulario.value.y1)
+    this.objetodistancia.x2 = Number(this.formulario.value.x2)
+    this.objetodistancia.y2 = Number(this.formulario.value.y2)
+    this.objetodistancia.calcular()
+    this.resultado = this.objetodistancia.resultado
   }
 }

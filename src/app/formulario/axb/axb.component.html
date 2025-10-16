@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Multiplicación usando Sumas</h1>
+  <form [formGroup]="formulario" (ngSubmit)="calculos()">
+    <div class="form-group">
+      <label for="numeroA">Número A:</label>
+      <input
+        type="number"
+        id="numeroA"
+        class="form-control"
+        formControlName="numeroA">
+    </div>
+
+    <div class="form-group">
+      <label for="numeroB">Número B:</label>
+      <input
+        type="number"
+        id="numeroB"
+        class="form-control"
+        formControlName="numeroB">
+    </div>
+    <button type="submit" class="btn">Calcular</button>
+  </form>
+  <div *ngIf="calculoRealizado" class="result">
+    <h2>El resultado es: {{ objetoCalculadora.resultado }}</h2>
+  </div>
+</div>

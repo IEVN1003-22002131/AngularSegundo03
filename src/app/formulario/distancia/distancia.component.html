@@ -1,21 +1,31 @@
-<p>distancia works!</p>
+<div class="container">
+  <form [formGroup]="formulario" class="formulario">
+    <h3>Calcular la distancia entre dos puntos</h3>
 
-<div>
-  <h1>Multiplica dos numeros</h1>
-  <form [formGroup]="formulario">
-    <div>
-    <label for="">Primero Numero</label>
-    <input formControlName="numero1" type="number">
+    <div class="campo">
+      <label for="x1">x1:</label>
+      <input id="x1" type="number" formControlName="x1">
     </div>
+
+    <div class="campo">
+      <label for="y1">y1:</label>
+      <input id="y1" type="number" formControlName="y1">
+    </div>
+
+    <div class="campo">
+      <label for="x2">x2:</label>
+      <input id="x2" type="number" formControlName="x2">
+    </div>
+
+    <div class="campo">
+      <label for="y2">y2:</label>
+      <input id="y2" type="number" formControlName="y2">
+    </div>
+
+    <button type="button" (click)="calcularDistancia()">Calcular</button>
+
+    <h4 class="resultado">
+      La distancia entre los dos puntos es: {{ resultado }}
+    </h4>
   </form>
-  <br>
-  <div>
-    <label for="">Segundo Numero</label>
-    <input formControlName="numero2" type="number">
-  </div>
-  <br>
-  <button (click)="multNumeros()" type="button">Multiplicar</button>
-  <h1>Resultado: {{resultado}}</h1>
 </div>
-
-
