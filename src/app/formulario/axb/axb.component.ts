@@ -11,6 +11,7 @@ import { axb } from './axb.class';
   templateUrl: './axb.component.html',
   styleUrl: './axb.component.css'
 })
+
 export class AxbComponent implements OnInit{
   objetoCalculadora = new axb();
   formulario!: FormGroup;

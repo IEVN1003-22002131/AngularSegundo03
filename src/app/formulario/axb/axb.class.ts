@@ -1,4 +1,4 @@
-export class axb {
+export class axb  {
   numeroA: number = 0;
   numeroB: number = 0;
   resultado: number = 0;
