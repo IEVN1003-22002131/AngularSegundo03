@@ -3,7 +3,6 @@ import { Distancia } from './distancias.class';
 import { ReactiveFormsModule, FormsModule, FormGroup, FormControl} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-
 @Component({
   selector: 'app-distancia',
   standalone: true,

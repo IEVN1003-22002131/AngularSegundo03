@@ -11,6 +11,7 @@ import { Zodiaco } from './zodiaco.class'
   styleUrl: './zodiaco.component.css', 
 })
 
+
 export class ZodiacoComponent implements OnInit {
   zodiacoForm!: FormGroup; 
   procesoZodiaco = new Zodiaco(); 

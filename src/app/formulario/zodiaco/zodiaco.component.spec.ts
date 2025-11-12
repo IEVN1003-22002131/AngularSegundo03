@@ -11,6 +11,7 @@ describe('ZodiacoComponent', () => {
     })
     .compileComponents();
 
+    
     fixture = TestBed.createComponent(ZodiacoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

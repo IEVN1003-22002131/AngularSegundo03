@@ -52,11 +52,12 @@ export class Zodiaco {
     this.fechaHoy = new Date();
     this.fechaNacimiento = new Date(this.Anio, this.Mes - 1, this.Dia);
     this.Edad = this.fechaHoy.getFullYear() - this.fechaNacimiento.getFullYear();
-    this.diferencAiaMeses = this.fechaHoy.getMonth() - this.fechaNacimiento.getMonth();
+    this.diferenciaMeses = this.fechaHoy.getMonth() - this.fechaNacimiento.getMonth();
     if (this.diferenciaMeses < 0 || (this.diferenciaMeses === 0 && this.fechaHoy.getDate() < this.fechaNacimiento.getDate())) {
       this.Edad--;
     }
   }
+  
   calcularSignoChino(): void {
     this.indiceZodiacal = (this.Anio - 1992) % 12;
     if (this.indiceZodiacal < 0) {
