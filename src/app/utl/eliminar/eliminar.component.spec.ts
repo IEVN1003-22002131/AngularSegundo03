@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { EliminarComponent } from './eliminar.component';
 
 describe('EliminarComponent', () => {
